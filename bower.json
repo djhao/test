@@ -1,0 +1,23 @@
+{
+  "name": "app",
+  "homepage": "https://github.com/djhao/test",
+  "authors": [
+    "djhao <270410775@qq.com>"
+  ],
+  "description": "angular webapp",
+  "main": "",
+  "keywords": [
+    "angularjs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4"
+  }
+}
