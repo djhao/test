@@ -2,6 +2,8 @@
  * Created by deng on 2017/5/16.
  */
 var gulp=require("gulp");
+var connect=require("gulp-connect");
+
 var $=require('gulp-load-plugins')();
 var open=require('open');
 var app={
@@ -10,19 +12,22 @@ var app={
     prdPath:"dist/"
 };
 gulp.task('lib',function(){
-    gulp.src('bowwe_components/**/*.js')
+    gulp.src('bower_components/**/*.js')
         .pipe(gulp.dest(app.devPath+'vendor'))
         .pipe(gulp.dest(app.prdPath+'vendor'))
+        .pipe($.connect.reload())
 });
 gulp.task('html',function(){
     gulp.src(app.srcPath+'/**/*.html')
         .pipe(gulp.dest(app.devPath))
         .pipe(gulp.dest(app.prdPath))
+        .pipe($.connect.reload())
 });
 gulp.task('json',function(){
     gulp.src(app.srcPath+'data/**/*.json')
         .pipe(gulp.dest(app.devPath+'data'))
         .pipe(gulp.dest(app.prdPath+'data'))
+        .pipe($.connect.reload());
 });
 gulp.task('less',function(){
     gulp.src(app.srcPath+'style/index.less')
@@ -30,6 +35,7 @@ gulp.task('less',function(){
         .pipe(gulp.dest(app.devPath+'css'))
         .pipe($.cssmin())
         .pipe(gulp.dest(app.prdPath+'css'))
+        .pipe($.connect.reload());
 })
 gulp.task('js',function(){
     gulp.src(app.srcPath+'srcipt/**/*.js')
@@ -38,4 +44,35 @@ gulp.task('js',function(){
 
         .pipe($.uglify())
         .pipe(gulp.dest(app.prdPath+'js'))
+        .pipe($.connect.reload())
 });
+gulp.task('image',function(){
+    gulp.src(app.srcPath+'image/**/*')
+        .pipe(gulp.dest(app.devPath+'image'))
+
+        .pipe($.imagemin())
+        .pipe(gulp.dest(app.prdPath+'image'))
+        .pipe($.connect.reload())
+});
+gulp.task('build',['image','js','less','lib','html','json'])
+gulp.task('clean',function(){
+    gulp.src([app.devPath,app.prdPath])
+        .pipe($.clean())
+
+});
+gulp.task('serve',['build'], function () {
+    $.connect.server({
+            root:[app.devPath],
+            livereload:true,
+            port:8880
+        }
+    );
+    open('http://localhost:8880');
+    gulp.watch(app.srcPath+'script/**/*.js',['js']);
+    gulp.watch(app.srcPath+'**/*.html',['html']);
+    gulp.watch(app.srcPath+'data/**/*.json',['json']);
+    gulp.watch(app.srcPath+'style/**/*.less',['less']);
+    gulp.watch(app.srcPath+'image/**/*',['image']);
+    gulp.watch('bower_components/**/*',['lib']);
+});
+  gulp.task('default',['serve']);

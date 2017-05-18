@@ -1,0 +1,37 @@
+.f-l {
+  float: left;
+}
+.f-r {
+  float: right;
+}
+.clear {
+  clear: both;
+}
+.head {
+  background-color: #12d5b5;
+  height: 1.06666667rem;
+  line-height: 1.06666667rem;
+  padding-left: 0.18666667rem;
+  padding-right: 0.18666667rem;
+}
+.head .text {
+  color: #fff;
+}
+.custom {
+  background-color: #feae11;
+  color: #fff;
+  border-color: #feae11;
+  border-style: dashed;
+  margin-top: 0.18666667rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  font-size: 0.42666667rem;
+  margin: 0;
+}
