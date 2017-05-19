@@ -1,3 +1,15 @@
+.bg-w {
+  background-color: #fff;
+}
+.c-w {
+  color: #fff;
+}
+.p-a {
+  position: absolute;
+}
+.p-r {
+  position: relative;
+}
 .f-l {
   float: left;
 }
@@ -7,6 +19,30 @@
 .clear {
   clear: both;
 }
+.d-ib {
+  display: inline-block;
+}
+.d-b {
+  display: block;
+}
+.ta-l {
+  text-align: left;
+}
+.ta-c {
+  text-align: center;
+}
+.ta-r {
+  text-align: right;
+}
+.va-t {
+  vertical-align: top;
+}
+.va-m {
+  vertical-align: middle;
+}
+.va-b {
+  vertical-align: bottom;
+}
 .head {
   background-color: #12d5b5;
   height: 1.06666667rem;
@@ -14,10 +50,11 @@
   padding-left: 0.18666667rem;
   padding-right: 0.18666667rem;
 }
-.head .text {
+.head .text,
+.head .title {
   color: #fff;
 }
-.custom {
+.head .custom {
   background-color: #feae11;
   color: #fff;
   border-color: #feae11;
@@ -26,12 +63,94 @@
   padding-left: 0.4rem;
   padding-right: 0.4rem;
 }
+.head .back-btn {
+  font-size: 0.53333333rem;
+  width: 1rem;
+  left: 0;
+}
+.foot {
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 0;
+  height: 1.06666667rem;
+  line-height: 1.06666667rem;
+  border-top: 1px solid #d4d4d4;
+}
+.foot li {
+  font-size: 0.53333333rem;
+  height: 1.06666667rem;
+  width: 33%;
+  color: #9f9f91;
+}
+.foot li.select {
+  background-color: #dbf9f4;
+  color: #01c2a3;
+}
+.foot .icon-document {
+  background-image: url(../image/document.png);
+  width: 25px;
+  height: 21px;
+}
+.foot .icon-search {
+  background-image: url(../image/search.png);
+  width: 24px;
+  height: 24px;
+}
+.foot .icon-my {
+  background-image: url(../image/my.png);
+  width: 23px;
+  height: 25px;
+}
+.position-list {
+  margin: 0;
+  padding: 0;
+}
+.position-list .Item {
+  margin-right: 0.08rem;
+  margin-left: 0.08rem;
+  padding-top: 0.18666667rem;
+  padding-bottom: 0.18666667rem;
+  padding-left: 0.08rem;
+  padding-right: 0.08rem;
+  list-style: none;
+  border-bottom: 1px solid #ddd;
+}
+.position-list .Item .logo {
+  width: 1.73333333rem;
+  height: 1.73333333rem;
+  margin-right: 0.34666667rem;
+}
+.position-list .Item .title {
+  margin: 0;
+}
+.position-list .Item .text {
+  margin: 0;
+}
+.bootom-btn {
+  position: fixed;
+  height: 1.2rem;
+  background-color: #12d5b5;
+  left: 0;
+  right: 0;
+  width: 100%;
+  bottom: 0;
+  font-size: 0.42666667rem;
+}
 html,
 body {
   height: 100%;
   width: 100%;
 }
 body {
+  background-color: #eee;
   font-size: 0.42666667rem;
   margin: 0;
+}
+button {
+  outline: none;
+  border: none;
 }
